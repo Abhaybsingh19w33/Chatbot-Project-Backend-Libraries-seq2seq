@@ -170,7 +170,7 @@ def Seq2Seq(output_dim, output_length, batch_input_shape=None,
 
     decoder = RecurrentSequential(readout='add' if peek else 'readout_only',
                                   state_sync=inner_broadcast_state, decode=True,
-                                  output_le6ngth=output_length, unroll=unroll,
+                                  output_length=output_length, unroll=unroll,
                                   stateful=stateful, teacher_force=teacher_force)
 
     for _ in range(depth[1]):

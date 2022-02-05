@@ -23,6 +23,7 @@ hidden_dim = 24
 
 @keras_test
 def test_SimpleSeq2Seq():
+    print("Starting simple seq2seq test")
     x = np.random.random((samples, input_length, input_dim))
     y = np.random.random((samples, output_length, output_dim))
 
@@ -32,13 +33,15 @@ def test_SimpleSeq2Seq():
 
     for model in models:
         model.compile(loss='mse', optimizer='sgd')
-        model.fit(x, y, nb_epoch=1)
+        # model.fit(x, y, nb_epoch=1)
+        model.fit(x, y, epochs=1)
 
     print("Test passed for test_SimpleSeq2Seq()")
 
 
 @keras_test
 def test_Seq2Seq():
+    print("Starting seq2seq test")
     x = np.random.random((samples, input_length, input_dim))
     y = np.random.random((samples, output_length, output_dim))
 
@@ -60,6 +63,7 @@ def test_Seq2Seq():
     
 @keras_test
 def test_AttentionSeq2Seq():
+    print("Starting attention seq2seq test")
     x = np.random.random((samples, input_length, input_dim))
     y = np.random.random((samples, output_length, output_dim))
 
@@ -73,3 +77,15 @@ def test_AttentionSeq2Seq():
         model.fit(x, y, epochs=1)
 
     print("Test passed for test_AttentionSeq2Seq()")
+
+print()
+print()
+test_SimpleSeq2Seq()
+print()
+print()
+test_Seq2Seq()
+print()
+print()
+test_AttentionSeq2Seq()
+print()
+print()
